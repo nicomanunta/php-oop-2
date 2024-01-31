@@ -47,10 +47,20 @@
     $cibo_3 = new Cibo("Almo Nature Cat Daily Lattina", 16.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg' alt=''>", "Secco");
     
 
-    // sottoclasse CUCCIA
-    // class Cuccia extends Prodotto{
-    //     public $dimensioni;
-    // }
+    // sottoclasse ACCESSORIO
+    class Accessorio extends Prodotto{
+        public $dimensioni;
+
+        function __construct($_nome, $_prezzo, $_img, $_dimensioni){
+            parent::__construct($_nome, $_prezzo, $_img);
+            $this-> dimensioni = $_dimensioni;
+        }
+        public function getInfo(){
+            return parent:: getInfo()."Dimensioni: ". $this-> dimensioni;
+        }
+    }
+    $accessorio_1 = new Accessorio("Voliera Wilma in Legno", 60, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg' alt=''>", "100-60-50cm");
+    $accessorio_2 = new Accessorio("Cartucce Filtranti per Filtro EasyCrystal", 19.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg' alt=''>", "Per vasche max: 60l");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +78,8 @@
     echo $cibo_1-> getInfo();
     echo $cibo_2-> getInfo();
     echo $cibo_3-> getInfo();
+    echo $accessorio_1-> getInfo();
+    echo $accessorio_2-> getInfo();
     ?>
     <div class="container">
         <div class="row">
