@@ -2,29 +2,38 @@
     class Prodotto{
         public $nome;
         public $prezzo;
+        public $img;
 
 
-        function __construct($_nome, $_prezzo){
+        function __construct($_nome, $_prezzo, $_img){
             $this-> nome = $_nome;
             $this-> prezzo = $_prezzo;
+            $this-> img = $_img;
         }
-        public function getNome(){
-            return $this-> nome;
+        public function getInfo(){
+            return "Nome: ". $this-> nome."<br>"."Prezzo: ".$this-> prezzo."€"."<br>".$this-> img."<br>";
         }
-        public function getPrezzo(){
-            return $this-> prezzo;
-        }
+         
     }
-    class Giochi extends Prodotto{
+    class Gioco extends Prodotto{
         public $materiale;
-        
+
+        function __construct($_nome, $_prezzo, $_img, $_materiale){
+            parent::__construct($_nome, $_prezzo, $_img);
+            $this -> materiale = $_materiale;
+        }
+        public function getInfo(){
+            return  parent:: getInfo()."Materiale: ". $this-> materiale;
+        } 
     }
-    class Cibo extends Prodotto{
-        public $tipo
-    }
-    class Cuccia extends Prodotto{
-        public $dimensioni
-    }
+    $gioco_1 = new Gioco("Kong Classic", 6.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg' alt=''>", "Plastica");
+    $gioco_2 = new Gioco("Topino Trixie", 10.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg' alt=''>", "Peluche");
+    // class Cibo extends Prodotto{
+    //     public $tipo;
+    // }
+    // class Cuccia extends Prodotto{
+    //     public $dimensioni;
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +44,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+    <!-- <img src='' alt=''> -->
+    <?php
+    echo $gioco_1-> getInfo();
+    echo $gioco_2-> getInfo();
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -49,5 +63,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 </html>
