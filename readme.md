@@ -9,6 +9,7 @@ Una volta create le classi che descrivono il nostro sistema, instanziate prima t
 BONUS:
 Definite una proprietà privata ed un metodo privato all'interno di una classe, assegnategli un valore e mostratelo nelle card (ricordatevi dell'esempio del codice prodotto visto a lezione).
 Ecco le informazioni sui prodotti da mostrare
+
 Royal Canin Mini Adult
 https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000
 
