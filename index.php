@@ -15,6 +15,7 @@
         }
          
     }
+    // sottoclasse GIOCO
     class Gioco extends Prodotto{
         public $materiale;
 
@@ -28,9 +29,25 @@
     }
     $gioco_1 = new Gioco("Kong Classic", 6.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg' alt=''>", "Plastica");
     $gioco_2 = new Gioco("Topino Trixie", 10.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg' alt=''>", "Peluche");
-    // class Cibo extends Prodotto{
-    //     public $tipo;
-    // }
+
+    // sottoclasse CIBO
+    class Cibo extends Prodotto{
+        public $tipo;
+
+        function __construct($_nome, $_prezzo, $_img, $_tipo){
+            parent::__construct($_nome, $_prezzo, $_img);
+            $this -> tipo = $_tipo;
+        }
+        public function getInfo(){
+            return parent:: getInfo()."Tipo: ". $this-> tipo;
+        }
+    }
+    $cibo_1 = new Cibo("Royal Canin Mini Adult", 15.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000' alt=''>" ,"Secco");
+    $cibo_2 = new Cibo("Almo Nature Holistic Maintenance Medium Large Tonno e Riso", 12.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg' alt=''>" , "Secco");
+    $cibo_3 = new Cibo("Almo Nature Cat Daily Lattina", 16.90, "<img src='https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg' alt=''>", "Secco");
+    
+
+    // sottoclasse CUCCIA
     // class Cuccia extends Prodotto{
     //     public $dimensioni;
     // }
@@ -48,6 +65,9 @@
     <?php
     echo $gioco_1-> getInfo();
     echo $gioco_2-> getInfo();
+    echo $cibo_1-> getInfo();
+    echo $cibo_2-> getInfo();
+    echo $cibo_3-> getInfo();
     ?>
     <div class="container">
         <div class="row">
